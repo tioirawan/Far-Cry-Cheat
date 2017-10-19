@@ -5,7 +5,7 @@
     "description": "Program Sederhana Untuk Cheat Far Cry",
     "main": "main.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "package-win": "electron-packager . FarCryCheat --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/images/icon.ico --prune=true --out=release-builds --version-string.CompanyName=Indmind --version-string.FileDescription='Program Sederhana Untuk Cheat Far Cry' --version-string.ProductName=\"Far Cry Cheat\""
     },
     "keywords": [
         "Far Cry",
@@ -18,6 +18,7 @@
         "xml2js": "^0.4.19"
     },
     "devDependencies": {
-        "electron": "^1.7.9"
+        "electron": "^1.7.9",
+        "electron-packager": "^9.1.0"
     }
 }
