@@ -1,0 +1,23 @@
+{
+    "name": "farcrycheat",
+    "productName": "Far Cry Cheat",
+    "version": "0.0.1",
+    "description": "Program Sederhana Untuk Cheat Far Cry",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "Far Cry",
+        "cheat",
+        "electron"
+    ],
+    "author": "Indmind",
+    "license": "MIT",
+    "dependencies": {
+        "xml2js": "^0.4.19"
+    },
+    "devDependencies": {
+        "electron": "^1.7.9"
+    }
+}
