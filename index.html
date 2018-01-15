@@ -7,16 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Far Cry Cheat</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-    <!-- Load library javascript di electron -->
     <script>
         if (typeof module === 'object') {
             window.module = module;
             module = undefined;
         }
     </script>
-    <!-- jQuery -->
     <script src="./assets/js/jquery.3.2.1.min.js"></script>
-    <!-- bootstrap.js -->
     <script src="./assets/js/bootstrap.min.js"></script>
     <script>
         if (window.module) module = window.module;
@@ -63,44 +60,29 @@
         </form>
     </div>
     <script>
-        // mendapat ipcRenderer dari module electron
         const {
             ipcRenderer
         } = require('electron');
 
-        // dipanggil ketika button CHEAT! di klik
         $("form").submit((e) => {
-
-            // mencegah submit untuk mereload view
             e.preventDefault();
 
-            // mendapatkan DOM checkbox
             const checkbox = $("input:checkbox");
 
-            // membuat array cheat dengan panjang jumlah checkbox, biar kodenya keliatan panjang hehe...
-            let cheat = new Array(checkbox.length);
+            const cheat = checkbox.map(c => ({
+                isChecked: c.checked,
+                value: c.value
+            }))
 
-            // loop semua checkbox dan memasukanya ke variable cheat
-            for (let i = 0; i < cheat.length; i++) {
-                cheat[i] = {
-                    isChecked: checkbox[i].checked,
-                    value: checkbox[i].value
-                };
-            }
-
-            // pack chear dan game kedalam variable data
             const data = {
                 game: $("#select").val(),
                 cheat: cheat
             };
 
-            // mengirim data untuk diproses di main.js
             ipcRenderer.send('cheat:data', data);
         });
 
-        // menangkap fungsi handleError di main.js
         ipcRenderer.on("cheat:error", (err, res) => {
-            // menampilkan alert ke user
             alert(res);
         })
     </script>
